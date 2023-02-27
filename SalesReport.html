@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="Team Excel" content="Project for Emma's small engine">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="css/imgs/Logo_ESE.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Sales Report</title>
+</head>
+<body class="invoice">
+    <div class="my-5 page" style="width: 21cm; height: 29.7cm; overflow-x: hidden;">
+        <div class="p-5">
+            <div class="top-content bb d-flex justify-content-between">
+                <div class="logo">
+                    <img src="css/imgs/Logo_ESE.png" alt="" class="img-fluid">
+                    <h1>Emma's Small Engine</h1>
+                </div>
+                <div>
+                    <div class="top-left">
+                        <div class="graphic-path">
+                            <p id="reportTitle">
+                                End of Day Report
+                            </p>
+                        </div>
+                    </div>
+                    <div id="reportDiv" class="position-relative">
+                        <p style="margin-bottom: 0;" id="lblStartDate">Sunday, November 27, 2022</p>
+                        <p style="margin-bottom: 0;" class="hidden" id="lblEndDate">Saturday, December 3, 2022</p>
+                    </div>
+                </div>
+            </div>
+            <div class="store-user mt-5" style="margin:0!important;">
+                    <div style="display: flex; flex-direction:column; width: 90%; margin: 0 auto; justify-content: center; align-items: center;">
+                        <div class="line-header-div">
+                            <p>Payment Type Summary</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p id="lblCashHeader">Cash (3)</p> <p id="lblCashAmount">$58.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p id="lblDebitHeader">Debit (2)</p> <p id="lblDbitAmount">225.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p id="lblCreditHeader">Credit (5)</p> <p id="lblCreditAmount">859.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p id="lblChequeHeader">Cheque (0)</p> <p style="width:11%; text-align: right; border-bottom: 1px solid black;" id="lblChequeAmount"> 0.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p><b>Total Payments</b></p> <p style="width:11%; text-align: right; border-bottom: 4px double black;" id="lblTotalPayment">$1,142.00</p>
+                        </div>
+
+                        <div class="line-header-div">
+                            <p>Tax Summary</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p>Sales Tax (13%)</p> <p id="lblTaxes">$148.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p>Other Taxes</p> <p style="width:11%; text-align: right; border-bottom: 1px solid black;"> 0.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p><b>Total Taxes</b></p> <p style="width:11%; text-align: right; border-bottom: 4px double black;" id="lblTaxTotal">$148.00</p>
+                        </div>
+
+                        <div class="line-header-div">
+                            <p>Employee Summary</p>
+                        </div>
+                        <div id="emmaDiv" class="line-item-div">
+                            <p id="lblEmp1">Emma</p> <p id="lblEmp1Sales">$142.00</p>
+                        </div>
+                        <div id="wendyDiv" class="line-item-div">
+                            <p id="lblEmp2">Wendy</p> <p id="lblEmp2Sales">625.00</p>
+                        </div>
+                        <div id="williamDiv" class="line-item-div">
+                            <p id="lblEmp3">William</p> <p style="width:11%; text-align: right; border-bottom: 1px solid black;" id="lblEmp3Sales">375.00</p>
+                        </div>
+                        <div  class="line-item-div">
+                            <p><b>Total Employee Sales</b></p> <p style="width:11%; text-align: right; border-bottom: 4px double black;" id="lblTotalEmployeeSales">$1,142.00</p>
+                        </div>
+
+                        <div class="line-item-div" style="margin-top: .66rem;">
+                            <p><b>Sales Summary</b></p>
+                        </div>
+                        <div style="display: flex; width: 100%;">
+                            <p style="width:63%; text-align: right;"><b>Price</b></p><p style="width:18%; text-align: right;"><b>Quantity</b></p><div style="width: 11%;"></div>
+                        </div>
+                        <div class="line-item-div">
+                            <p style="width: 20%;">R-Z65 Engine</p> <div style="width: 66%; display:flex; justify-content: right;"><p style="width: 21.25%;">$92.00</p> <p id="item1Quantity" style="width: 25%;">6</p></div> <p style="width: 10%; text-align: right;" id="lblItem1Total">$552.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p style="width: 20%;">Premium A - Oil</p> <div style="width: 66%; display:flex; justify-content: right;"><p style="width: 21.25%;">55.50</p> <p id="item2Quantity" style="width: 25%;">4</p></div> <p style="width: 10%; text-align: right;" id="lblItem2Total">222.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p style="width: 20%;">Mini Mower 365</p> <div style="width: 66%; display:flex; justify-content: right;"><p style="width: 21.25%;">166.00</p> <p id="item3Quantity" style="width: 25%;">2</p></div> <p style="width: 10%; text-align: right;" id="lblItem3Total">332.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p style="width: 20%;">Brake Attachement</p> <div style="width: 66%; display:flex; justify-content: right;"><p style="width: 21.25%;">12.00</p> <p id="item4Quantity" style="width: 25%;">3</p></div> <p style="width:10%; text-align: right; border-bottom: 1px solid black;" id="lblItem4Total"> 36.00</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p><b>Total Sales</b></p> <p style="width:11%; text-align: right; border-bottom: 4px double black;" id="lblTotalSales">$1,142.00</p>
+                        </div>
+                        <div class="line-header-div">
+                            <p><b>Appreciation</b></p>
+                        </div>
+                        <div class="line-item-div">
+                            <p>Appreciation Earned</p> <p style="width:11%; text-align: right; border-bottom: 1px solid black;" id="lblAppreciation">$22.84</p>
+                        </div>
+                        <div class="line-item-div">
+                            <p><b>Appreciation Earned to Date</b></p> <p style="width:11%; text-align: right; border-bottom: 4px double black;" id="lblAppreciationTotal">$4039.26</p>
+                        </div>
+                    </div>
+                </div>
+            <footer>
+                <hr>
+                <p class="m-0 text-center">
+                    Report Generated by <span style="margin-bottom: 0;" id="lblUser">Generated: 01/01/2022 9:57pm</span> 
+                    at <span style="margin-bottom: 0;" id="lblGenerated">Generated: 01/01/2022 9:57pm</span>
+                </p>
+            </footer>
+        </div>
+        
+        
+    </div>
+    
+    <script src="https://kit.fontawesome.com/f8c88d6b79.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/variables.js"></script>  
+    <script src="js/sales_report.js"></script>   
+</body>
+</html>

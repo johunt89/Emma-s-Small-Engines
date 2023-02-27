@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Order Request - Emma's</title>
+    <meta name="Team Excel" content="Project for Emma's small engine">
+    <link rel="icon" type="image/png" href="css/imgs/Logo_ESE.png">
+    <script src="js/sidevar.js" defer></script>
+</head>
+
+<!--sHOULD ADD TAB INDEX-->
+<body class="inventory_body">
+    <header class= "inventory_header">
+        <nav class ='sidenav'>
+            <div class="log_content">
+                <a href="home.html" class="white-outline" tabindex="1"><img src="css/imgs/eseLogo.png" alt="company logo"></a>
+                <a class="links_name" href="home.html">ESE</a>
+            </div>
+            <div class="nav__border" ></div>
+            <ul id ="pageLinks">
+                <li class="no_pointer_fornow">
+                    <a href="#" tabindex="10">
+                        <i class="fa-regular fa-user lg"></i>
+                        <span class="links_name" id="greeting"></span>
+                    </a>
+                    <span class="menu tooltip" id="greetingTooltip"></span>
+                </li>
+                <li id="liInventory">
+                    <a  tabindex="20" href="inventory.html">
+                        <i class="fa-solid fa-warehouse"></i>
+                        <span class="links_name">Inventory</span>
+                    </a>
+                    <span class="menu tooltip">Inventory</span>
+                </li>
+                <li id="liPOS">
+                    <a href="pos.html" tabindex="30">
+                        <i class="fa-regular fa-credit-card"></i>
+                        <span class="links_name">POS</span>
+                    </a>
+                    <span class="menu tooltip">POS</span>
+                </li>
+                <li id="liOrderRequests">
+                    <a href="order_requests.html" tabindex="40">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span class="links_name">Order Requests</span>
+                    </a>
+                    <span class="menu tooltip">Order Requests</span>
+                </li>
+                <li id="liSupplier">
+                    <a href="supplier.html" tabindex="45">
+                        <i class="fa-regular fa-handshake"></i>
+                        <span class="links_name">Suppliers</span>
+                    </a>
+                    <span class="menu tooltip">Suppliers</span>
+                </li>
+                <li id="liCustomer">
+                    <a href="customer.html" tabindex="47"> 
+                        <i class="fa-solid fa-users"></i>
+                        <span class="links_name">Customers</span>
+                    </a>
+                    <span class="menu tooltip">Customers</span>
+                </li>
+                <li id="liAnalytics" >
+                    <a href="report.html" tabindex="50">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="links_name">Analytics</span>
+                    </a>
+                    <span class="menu tooltip">Analytics</span>
+                </li>
+                <li id="liUserSettings">
+                    <a href="manage_users.html" tabindex="60">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="links_name">Manage Roles</span>
+                    </a>
+                    <span class="menu tooltip">Manage Roles</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="logout">
+            <a href="#" onclick="loggingOut()" tabindex="63">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="links_name">Log out</span>
+            </a>
+            <span class="menu tooltip">Log out</span>
+        </div>
+        <p class="rights"><i class="fa-regular fa-copyright"></i>  Copyright Team Excel</p> 
+    </header>
+
+    <main>
+        <section id="order-request-page">
+            <h4>Order Request</h4>
+            <div class="order_btn_crud">
+                <button class="order_btn btn_submit" tabindex="500" onclick="submitOrder()">Order Submit</button>
+                <button class="order_btn btn_clear" tabindex="510" onclick="clearUPC()">Clear</button>
+                <button class="order_btn btn_cancel" tabindex="520" onclick="navigation.inventory()">Cancel</button>
+            </div>
+        </section>
+        <div id="inventoryMain">
+                <!--<div class=" divider_desc_btn">-->
+            <div class = "order-description">
+                <form action="/action_page.php" class="order-request">
+                    
+                    <label><b>Order Request ID</b></label>
+                    <label id="lblID">1</label><br>
+
+                    <label><b>Description</b></label>
+                    <input type="text" tabindex="100" id="txtDescription" placeholder="Enter Description" name="Description" required>
+    
+                    <label ><b>Order Request Items:</b></label><br>
+                    <div id="itemDiv">
+                        <p>No Items To Display :c!</p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <!-- Modal Section-->
+    <div class="bg_popup">
+        <!-- The form -->
+        <div class="form-popup" id="myForm">
+            <form action="/action_page.php" class="form-container">
+                <h1 id='add_edit'>ADD PRODUCT</h1>
+
+                <label><b>UPC_Code</b></label>
+                <input type="text" placeholder="Enter UPC_Code" name="UPC_Code" required>
+
+                <label><b>Name</b></label>
+                <input type="text" placeholder="Enter Name" name="Namw" required>
+
+                <label><b>Size</b></label>
+                <input type="text" placeholder="Enter Size" name="Size" required>
+
+                <label><b>Quantity</b></label>
+                <input type="text" placeholder="EnterQuantity" name="Quantity" required>
+
+                <button type="submit" class="btn_submit">Submit</button>
+                <button type="button" class="btn_cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+    </div>
+    <button class="order-request-help">
+        <i class="fa-solid fa-circle-question"></i>
+        <span class="order-request-help_tooltip"><b>Order Request Instructions:</b><br />
+            <b>Step 1.</b> Enter the decription for the order.<br />
+            <b>Step 2.</b> Edit the quantity of each item by using the '<b>dropdown list</b>' beside '<b>Quantity</b>'.<br />
+            <b>Step 3.</b> Once you are happy with the details submit the order by clicking the '<b>Order Submit</b>' button.<br />
+            <b>Optional:</b> To remove an item from the order request de-select the '<b>check box</b>' beside '<b>Include Item</b>'.<br />
+            <b>Note:</b> You may clear the order entirely by clicking the '<b>Clear</b> button.
+        </span>
+    </button>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/f8c88d6b79.js" crossorigin="anonymous"></script>
+    <script src="js/variables.js"></script>
+    <script src="js/order_request.js"></script>
+</body>
+</html>

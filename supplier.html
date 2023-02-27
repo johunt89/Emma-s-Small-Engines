@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Suppliers - Emma's</title>
+    <meta name="Team Excel" content="Project for Emma's small engine">
+    <link rel="icon" type="image/png" href="css/imgs/Logo_ESE.png">
+    <script src="js/popup.js" defer></script>
+    <script src="js/sidevar.js" defer></script>
+</head>
+<body class="inventory_body">
+    <header class= "inventory_header">
+        <nav class ='sidenav'>
+            <div class="log_content">
+                <a href="home.html" class="white-outline" tabindex="1"><img src="css/imgs/eseLogo.png" alt="company logo"></a>
+                <a class="links_name" href="home.html">ESE</a>
+            </div>
+            <div class="nav__border" ></div>
+            <ul id ="pageLinks">
+                <li class="no_pointer_fornow">
+                    <a href="#" tabindex="10">
+                        <i class="fa-regular fa-user lg"></i>
+                        <span class="links_name" id="greeting"></span>
+                    </a>
+                    <span class="menu tooltip" id="greetingTooltip"></span>
+                </li>
+                <li id="liInventory">
+                    <a  tabindex="20" href="inventory.html">
+                        <i class="fa-solid fa-warehouse"></i>
+                        <span class="links_name">Inventory</span>
+                    </a>
+                    <span class="menu tooltip">Inventory</span>
+                </li>
+                <li id="liPOS">
+                    <a href="pos.html" tabindex="30">
+                        <i class="fa-regular fa-credit-card"></i>
+                        <span class="links_name">POS</span>
+                    </a>
+                    <span class="menu tooltip">POS</span>
+                </li>
+                <li id="liOrderRequests">
+                    <a href="order_requests.html" tabindex="40">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span class="links_name">Order Requests</span>
+                    </a>
+                    <span class="menu tooltip">Order Requests</span>
+                </li>
+                <li id="liSupplier">
+                    <a href="supplier.html" tabindex="45">
+                        <i class="fa-regular fa-handshake"></i>
+                        <span class="links_name">Suppliers</span>
+                    </a>
+                    <span class="menu tooltip">Suppliers</span>
+                </li>
+                <li id="liCustomer">
+                    <a href="customer.html" tabindex="47"> 
+                        <i class="fa-solid fa-users"></i>
+                        <span class="links_name">Customers</span>
+                    </a>
+                    <span class="menu tooltip">Customers</span>
+                </li>
+                <li id="liAnalytics">
+                    <a href="report.html" tabindex="50">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="links_name">Analytics</span>
+                    </a>
+                    <span class="menu tooltip">Analytics</span>
+                </li>
+                <li id="liUserSettings">
+                    <a href="manage_users.html" tabindex="60">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="links_name">Manage Roles</span>
+                    </a>
+                    <span class="menu tooltip">Manage Roles</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="logout">
+            <a href="#" onclick="loggingOut()" tabindex="63">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="links_name">Log out</span>
+            </a>
+            <span class="menu tooltip">Log out</span>
+        </div>
+        <p class="rights"><i class="fa-regular fa-copyright"></i>  Copyright Team Excel</p> 
+    </header>
+    <main>
+        <section id="pageName">
+            <h4>SUPPLIERS</h4>
+        </section>
+        <div id="inventorySearch" style="position:relative;">
+            <label id="searchHeader">Search Suppliers: </label>
+            <input tabindex="70" onfocus="SearchFocus()" type="text" id="searchText" placeholder="Enter Name Eg. John Deere, Phone Eg. ###-###-####, Email Eg. email@domainName.ca" name="searchText">
+            <div class="btn">
+                <div class="btn_crud">
+                    <button hidden tabindex="190" class="btn_crud_edit" onclick="EditItem()" id="btnEdit" aria-label="button for edit supplier">
+                        <i class="fa-sharp fa-solid fa-pen"></i></button>
+                    <span class="btn_tooltip">Edit Supplier</span>
+                </div>
+                <div class="btn_crud">
+                    <button class="btn_crud_add" tabindex="180" onclick="AddItem()" id="btn_add_popup" aria-label="button for add supplier">
+                        <i class="fa-solid fa-plus"></i></button>
+                    <span class="btn_tooltip">Add Supplier</span>
+                </div>
+            </div>
+        </div>
+        <div id="inventoryMain">
+            <div class=" divider2_desc_btn">
+                <div class = "description">
+                    <table class="table table-striped">
+                        <tr  class="bg-info">
+                            <th class="tableHeaders" tabindex="80" data-column="SupplierID" data-order="desc">Supplier ID</th>
+                            <th class="tableHeaders" tabindex="90" data-column="SupplierName" data-order="desc">Name</th>
+                            <th class="no-click" data-column="Supplier Phone" data-order="desc">Phone</th>
+                            <th class="no-click" data-column="SupplierEmail" data-order="desc">Email</th>
+                            <th class="no-click" data-column="SupplierAddress" data-order="desc">Address</th>
+                            <th class="no-click" data-column="SupplierEmail" data-order="desc">City</th>
+                            <th class="no-click" data-column="SupplierAddress" data-order="desc">Province</th>
+                            <th class="no-click" data-column="SupplierAddress" data-order="desc">Postal</th>
+                        </tr>
+                        <tbody id="myTable">
+                        </tbody>
+                    </table>
+                        <div id="pagination-wrapper"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Modal Section-->
+    <div id="modalContainter" tabindex="209">
+    </div>
+    <div class="bg_popup">
+        <!-- The form -->
+        <div class="form-popup" id="myForm">
+            <form onsubmit="ProcessForm(this)" class="form-container">
+                <h1 id='add_edit'>ADD SUPPLIER</h1>
+                
+                <label class="margin-top-22"><b>Supplier Name</b></label>
+                <input class="no-bottom-margin" tabindex="210" type="text" placeholder="ex. John Deere, Motor Shop..." id="formSupplierName" name="SupplierName" required>
+
+                <label class="margin-top-22"><b>Supplier Phone</b></label>
+                <input class="no-bottom-margin" tabindex="220" type="text" placeholder="ex. ###-###-####..." id="formSupplierPhone" name="SupplierPhone" required>
+
+                <label class="margin-top-22"><b>Supplier Email</b></label>
+                <input class="no-bottom-margin" tabindex="230" type="text" placeholder="ex. mower@lawn.ca..." id="formSupplierEmail" name="SupplierEmail" required>
+
+                <label class="margin-top-22"><b>Supplier Address</b></label>
+                <input class="no-bottom-margin" tabindex="235" type="text" placeholder="ex. #s Someplace St. City Province Country..." id="formSupplierAddress" name="SupplierAddress" required>
+
+                <label style="margin-top: 22px;"><b>City</b></label>
+                <input class="no-bottom-margin" tabindex="237" type="text" placeholder="ex. Welland, St. Catharines..." id="formSupplierCity" name="SupplierCity" required>
+
+                <label style="margin-top: 22px;"><b>Province</b></label>
+                <input class="no-bottom-margin" tabindex="240" type="text" placeholder="ex. Ontario, Quebect..." id="formSupplierProvince" name="SupplierProvince" required>
+                
+                <label style="margin-top: 22px;"><b>Postal Code</b></label>
+                <input class="no-bottom-margin" tabindex="242" type="text" placeholder="ex. A#B #P#..." id="formSupplierPostal" name="SupplierPostal" required>
+
+                <button tabindex="250" type="submit" class="btn_submit margin-top-22" value="submit">Submit</button>
+                <button tabindex="260" type="button" class="btn_cancel">Close</button>
+
+                <div tabindex="261" id="modalTrap" onfocus="focusForm()"></div>
+            </form>
+        </div>
+    </div>
+    <button class="help">
+        <i class="fa-solid fa-circle-question"></i>
+        <span class="help_tooltip"><b>Keybinds:</b><br />
+            Press '<b>e</b>' while a table row is selected to edit.<br />
+            Press '<b>a</b>' while a table row is selected to add a new supplier.<br />
+        </span>
+    </button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/f8c88d6b79.js" crossorigin="anonymous"></script>
+    <script src="js/variables.js"></script>  
+    <script src="js/supplier.js"></script>  
+</body>
+</html>

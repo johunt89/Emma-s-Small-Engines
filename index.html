@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma's Small Engine</title>
+    <meta name="Team Excel" content="Project for Emma's small engine">
+    <link rel="icon" type="image/png" href="css/imgs/Logo_ESE.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login_body">
+    <div class="background">
+    </div>
+    <div class="login-section">
+        <section class="login-header">
+            <h1 class="login-header__title">Welcome to Emma's Small Engine</h1>
+            <p class="login-header__text">Log in with your company email or employee number.</p>
+        </section>
+        <form action="#home.html" id="login-form" onsubmit="signIn(event)">
+            <span id="error-message"></span>
+            <input name="username" type="text" id="username" placeholder="Email or employee number" class="username" maxlength="15" required>
+            <input name="password" type="password" id="password" placeholder="Password">
+            <input type="submit" class="login-btn" value="Log In">
+            <a href="#">Find Account or Password</a>
+        </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/493cc16663.js" crossorigin="anonymous"></script>
+    <script src="js/variables.js"></script> 
+    <script src="js/login.js"></script>
+    <script src="js/seed_data.js"></script>
+</body>
+</html>

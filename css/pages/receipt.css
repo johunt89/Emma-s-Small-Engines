@@ -1,0 +1,36 @@
+#receiptLogo{
+    width: 250px;
+    height: 100px;
+}
+.invoiceTable {
+    max-width: 800px;
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    font-size: 16px;
+    line-height: 24px;
+}
+.invoiceTable table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+}
+.invoiceTable table td{
+    padding: 5px;
+    vertical-align: top;
+}
+.invoiceTable table td:nth-child(2){
+    text-align: right;
+}
+.invoiceTable table tr.top table td{
+    padding-bottom: 20px;
+}
+.invoiceTable table tr.receiptEmmaInformation table td{
+    padding-bottom: 40px;
+}
+.invoiceTable table tr.heading td{
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}

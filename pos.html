@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>POS - Emma's</title>
+    <meta name="Team Excel" content="Project for Emma's small engine">
+    <link rel="icon" type="image/png" href="css/imgs/Logo_ESE.png">
+    <script src="js/popup.js" defer></script>
+    <script src="js/sidevar.js" defer></script>
+    <script src="js/datetime.js" defer></script>
+</head>
+<body class="inventory_body">
+    <header class= "inventory_header">
+        <nav class ='sidenav'>
+            <div class="log_content">
+                <a href="home.html" class="white-outline" tabindex="1"><img src="css/imgs/eseLogo.png" alt="company logo"></a>
+                <a class="links_name" href="home.html">ESE</a>
+            </div>
+            <div class="nav__border" ></div>
+            <ul id ="pageLinks">
+                <li class="no_pointer_fornow">
+                    <a href="#" tabindex="10">
+                        <i class="fa-regular fa-user lg"></i>
+                        <span class="links_name" id="greeting"></span>
+                    </a>
+                    <span class="menu tooltip" id="greetingTooltip"></span>
+                </li>
+                <li id="liInventory">
+                    <a  tabindex="20" href="inventory.html">
+                        <i class="fa-solid fa-warehouse"></i>
+                        <span class="links_name">Inventory</span>
+                    </a>
+                    <span class="menu tooltip">Inventory</span>
+                </li>
+                <li id="liPOS">
+                    <a href="pos.html" tabindex="30">
+                        <i class="fa-regular fa-credit-card"></i>
+                        <span class="links_name">POS</span>
+                    </a>
+                    <span class="menu tooltip">POS</span>
+                </li>
+                <li id="liOrderRequests">
+                    <a href="order_requests.html" tabindex="40">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        <span class="links_name">Order Requests</span>
+                    </a>
+                    <span class="menu tooltip">Order Requests</span>
+                </li>
+                <li id="liSupplier">
+                    <a href="supplier.html" tabindex="45">
+                        <i class="fa-regular fa-handshake"></i>
+                        <span class="links_name">Suppliers</span>
+                    </a>
+                    <span class="menu tooltip">Suppliers</span>
+                </li>
+                <li id="liCustomer">
+                    <a href="customer.html" tabindex="47"> 
+                        <i class="fa-solid fa-users"></i>
+                        <span class="links_name">Customers</span>
+                    </a>
+                    <span class="menu tooltip">Customers</span>
+                </li>
+                <li id="liAnalytics">
+                    <a href="report.html" tabindex="50">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="links_name">Analytics</span>
+                    </a>
+                    <span class="menu tooltip">Analytics</span>
+                </li>
+                <li id="liUserSettings">
+                    <a href="manage_users.html" tabindex="60">
+                        <i class="fa-solid fa-gear"></i>
+                        <span class="links_name">Manage Roles</span>
+                    </a>
+                    <span class="menu tooltip">Manage Roles</span>
+                </li>
+            </ul>
+        </nav>
+        <div class="logout">
+            <a href="#" onclick="loggingOut()" tabindex="63">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="links_name">Log out</span>
+            </a>
+            <span class="menu tooltip">Log out</span>
+        </div>
+        <p class="rights"><i class="fa-regular fa-copyright"></i>  Copyright Team Excel</p> 
+    </header>
+    <main class="pos_info">
+        <section id="pos">
+            <div class="pos_title">
+                <div class ="pos_header">
+                    <h1>Order No.</h1>
+                    <h1 class="order_number" id="lblOrderNumber">#005</h1>
+                </div>
+                <div class="pos_search">
+                    <h2 id="datetime">datetime</h2>
+                </div>
+            </div>
+            
+            <div class="search_container">
+                <table class="search_by_phone">
+                    <tr>
+                        <td>
+                            <a href="#" class="no-click" tabindex="-1"><i class="fa-solid fa-magnifying-glass"></i></a>
+                        </td>
+                        <td>
+                            <div>
+                                <input tabindex="65" id="txtPhoneSearch" class="phone-search" placeholder="Enter Last 4 Phone Digits Eg. ####">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <table class="search_table">
+                    <tr>
+                        <td>
+                            <div>
+                                <input tabindex="66" list="customer-names" id="customer-list" class="customer-list" placeholder="Search Customer... Eg. John Doe">
+                                    <datalist id="customer-names" name="customer-names">
+                                    </datalist>
+                            </div>
+                        </td>
+                        <td>
+                            <button  tabindex="68" onclick="populateCustomerData()" class="btnCustView" id="btn_add_popup">Details</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="add_customer">
+                <a href="#" tabindex="69" onclick="customerAdd()" aria-label="link for adding new customers"><i class="fa-solid fa-user-plus"></i></a>
+            </div>
+            
+        </section>
+        <div id="itemSearch">
+            <div class="search_item_container">
+                <table class="search_item_table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <a href="#" class="no-click" tabindex="-1"><i class="fa-solid fa-magnifying-glass"></i></a>
+                            </td>
+                            <td class="search_item_td">
+                                <input tabindex="70" type="text" id="search-text" placeholder="Search Inventory by Name" class="search_item">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="posMain">
+            <div class = "description">
+                <table class="table table-striped">
+                    <tr  class="bg-info">
+                        <th class="no-click" data-column="UPC" data-order="desc">UPC</th>
+                        <th class="no-click" data-column="Name" data-order="desc">Name</th>
+                        <th class="no-click" data-column="Size" data-order="desc">Size</th>
+                        <th class="no-click" data-column="PriceRetail" data-order="desc">Price</th>
+                        <th class="no-click" data-column="Quantity" data-order="desc">Stock</th>
+                        <th></th>
+                    </tr>
+                    <tbody id="myTable">
+                    </tbody>
+                </table>
+                <div id="pagination-wrapper"></div>
+            </div>
+        </div>
+    </main>
+    <section class="pos_pay">
+        <div>
+            <h1 id="lblCart">Cart</h1>
+        </div>
+        <div id="divCart" class="show_items">
+            <table class="table table-striped">
+                <tr class="bg-info sticky-th">
+                    <th class="no-click" data-column="Name" data-order="desc">Name</th>
+                    <th class="no-click" data-column="PriceRetail" data-order="desc">Price</th>
+                    <th class="no-click" data-column="Quantity" data-order="desc">Quantity</th>
+                    <th></th>
+                </tr>
+                <tbody id="myTableCheckout">
+                </tbody>
+            </table>
+        </div>
+        <div class="pay_amount">
+            <div class="sub_total">
+                <h2>Sub Total</h2>
+                <h2 id="lblSubtotal">$0.00</h2>
+            </div>
+            <div class="tax">
+                <h2>Tax</h2>
+                <h2 id="lblTax">$0.00</h2>
+            </div>
+            <div class="pay_total">
+                <h2>Total</h2>
+                <h2 id="lblTotal">$0.00</h2>
+            </div>
+            <div class="pay_total paid">
+                <h2>Paid</h2>
+                <h2 id="lblPaid">$0.00</h2>
+            </div>
+            <div class="pay_total change">
+                <h2 id="lblChangeHeader">Change</h2>
+                <h2 id="lblChange">$0.00</h2>
+            </div>
+        </div>
+        <div class="checkout">
+            <h2 id="lblPaymentType">Payment Type</h2>
+            <div id="chkContainer" class="outer-payment-container">
+                <div class="payment-containter">
+                    <input id="chkCASH" name="chkPay" class="chkPayment" type="checkbox" value="Cash">
+                    <label tabindex="600" class="lblPayment" for="chkCASH"> CASH</label>
+                </div>
+                <div class="payment-containter">
+                    <input id="chkDEBIT" name="chkPay" class="chkPayment" type="checkbox" value="Debit">
+                    <label tabindex="610" class="lblPayment" for="chkDEBIT">DEBIT</label>
+                </div>
+                <div class="payment-containter">
+                    <input id="chkCREDIT" name="chkPay" class="chkPayment" type="checkbox" value="Credit">
+                    <label tabindex="620" class="lblPayment" for="chkCREDIT">CREDIT</label>
+                </div>
+                <div class="payment-containter">
+                    <input id="chkCHEQUE" name="chkPay" class="chkPayment" type="checkbox" value="Cheque">
+                    <label tabindex="630" class="lblPayment" for="chkCHEQUE">CHEQUE</label>
+                </div>
+            </div>
+            <h2 id="lblAmount" tabindex="640" class="payment-sub">Payment Amount: $</h2><input placeholder="Enter Amount Here Ex. 25.99" id="txtAmount" type="text">
+            <button tabindex="650" class="checkout-margin" id="btnCheckout" onclick="Checkout()">Checkout</button>
+            <button tabindex="660" class="checkout-margin" id="btnClear" onclick="clearPos()">Clear</button>
+        </div>
+    </section>
+    <!-- Modal Section-->
+    <div id="modalContainter" tabindex="209">
+    </div>
+    <div class="bg_popup">
+        <!-- The form -->
+        <div class="form-popup" id="myForm">
+            <div class="form-container">
+                <h4 id='add_edit'>Customer Details</h4> 
+                
+                <label ><b>Name</b></label>
+                <input tabindex="210" type="text" id="formName" readonly name="Name" required>
+
+                <label><b>Phone</b></label>
+                <input tabindex="220" type="text" id="formPhone" name="Phone" readonly required>
+
+                <label ><b>Address</b></label>
+                <input tabindex="230" type="text" id="formAddress" name="Address" readonly required>
+
+                <label ><b>Postal</b></label>
+                <input tabindex="240" type="text" id="formPostal" name="Quantity" readonly required>
+
+                <button tabindex="250" class="btn_cancel" value="submit">Close</button>
+
+                <div tabindex="261" id="modalTrap" onfocus="focusForm()"></div>
+            </div>
+        </div>
+    </div>
+    <div class="bg_popup secondPopup">
+        <!-- The form -->
+        <div class="form-popup" id="myForm">
+            <div class="form-container">
+                <h4 id='edit-cust'>Add Customer</h4> 
+                
+                <label style="margin-top: 22px;" ><b>First Name</b></label>
+                <input class="no-bottom-margin" tabindex="210" type="text" placeholder="Enter First Name" id="formCustomerFirst" name="CustomerFirstName" required>
+                
+                <label style="margin-top: 22px;" ><b>Last Name</b></label>
+                <input class="no-bottom-margin" tabindex="210" type="text" placeholder="Enter Last Name" id="formCustomerLast" name="CustomerLastName" required>
+                
+                <label style="margin-top: 22px;"><b>Phone Number</b></label>
+                <input class="no-bottom-margin" tabindex="220" type="text" placeholder="Enter Phone Number" id="formCustomerPhone" name="CustomerPhone" required>
+
+                <label style="margin-top: 22px;"><b>Address</b></label>
+                <input class="no-bottom-margin" tabindex="230" type="text" placeholder="Enter Address" id="formCustomerAddress" name="CustomerAddress" required>
+
+                <label style="margin-top: 22px;"><b>City</b></label>
+                <input class="no-bottom-margin" tabindex="240" type="text" placeholder="Enter City" id="formCustomerCity" name="CustomerCity" required>
+
+                <label style="margin-top: 22px;"><b>Province</b></label>
+                <input class="no-bottom-margin" tabindex="241" type="text" placeholder="Enter Province" id="formCustomerProvince" name="CustomerProvince" required>
+                
+                <label style="margin-top: 22px;"><b>Postal Code</b></label>
+                <input class="no-bottom-margin" tabindex="242" type="text" placeholder="Enter Postal Code" id="formCustomerPostal" name="CustomerPostal" required>
+
+                <button tabindex="270" class="btn_submit" onclick="addCustomerCrud()" value="submit">Submit</button>
+                <button tabindex="270" class="btn_cancel" onclick="closePopup()" value="cancel">Close</button>
+
+                <div tabindex="271" id="modalTrap" onfocus="focusForm()"></div>
+            </div>
+        </div>
+    </div>
+    <button class="pos-help">
+        <i class="fa-solid fa-circle-question"></i>
+        <span class="pos-help_tooltip"><b>POS Instructions:</b><br />
+            <b>Step 1.</b> Select a customer to the right of the order number.<br />
+            <b>Note:</b> You can search by phone number, or customer name.
+            <b>Step 2.</b> Add inventory items to the cart by clicking the '+' button beside an item. You can remove an item by clicking
+            'x' to the right of an item in the cart.<br />
+            <b>Step 3.</b> Select a payment type and enter the amount in the underlined area.<br />
+            <b>Note:</b> If you select cash and enter an amount more than total, once the payment has been processed it will display the change.<br />
+            <b>Step 4.</b> Press '<b>Checkout</b>' to complete your order. <br />
+            <b>Optional:</b> View the invoice after the sale has concluded by selecting '<b>View Invoice</b>' or press '<b>Clear</b>' to create a new order.
+        </span>
+    </button>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/f8c88d6b79.js" crossorigin="anonymous"></script> 
+    <script src="js/variables.js"></script>  
+    <script src="js/pos.js"></script>  
+</body>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emma's Small Engine</title>
+    <meta name="Team Excel" content="Project for Emma's small engine">
+    <link rel="icon" type="image/png" href="css/imgs/Logo_ESE.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="home_body">
+    <header class= "home_header">
+        <nav class ='sidenav'>
+            <a href="home.html"><img src="css/imgs/eseLogo.png" alt="Emma's small engines golden cog wheel company logo."></a>
+            <div id ="pageLinks" >
+                <a href="#home" id="greeting"></a>
+                <!--<div class="divider"></div>-->
+            </div> 
+        </nav>
+        <div class="sidenav_logout">
+            <a href="#" onclick="loggingOut()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span class="links_name">Log out</span>
+            </a>
+        </div>
+        <div class = "sidenav-bottom">
+            <span class="rights"><i class="fa-regular fa-copyright"></i>  Copyright Team Excel</span> 
+        </div>
+    </header>
+    <div class="home_menu">
+        <a href="pos.html" class="department">
+            <div>
+                <h1 class="dept_name">SALES</h1>
+                <img src="css/imgs/sales.png" alt="Cashier handing a small white bag to the customer with a debit machine on the counter.">
+            </div>
+            <div class="department_description">
+                <h1>SALES</h1>
+                <span>Our aim is your satisfaction</span>
+            </div>
+        </a>
+        <a href="inventory.html" class="department">
+            <div>
+                <h1 class="dept_name">INVENTORY</h1>
+                <img src="css/imgs/inventory.png" alt="Woman looking at a tablet surrounded by boxes.">
+            </div>
+            <div class="department_description">
+                <h1>INVENTORY</h1>
+                <span>A day Starts with you</span>
+            </div>
+        </a>
+        <a href="order_requests.html" class="department">
+            <div>
+                <h1 class="dept_name">ORDER</h1>
+                <img src="css/imgs/tech.png" alt="A man fixing the side of lawn mower with a wrench.">
+            </div>
+            <div class="department_description">
+                <h1>PARTS & ORDER</h1>
+                <span>The best engine parts, guaranteed</span>
+            </div>
+        </a>
+        <a href="report.html" class="department">
+            <div>
+                <h1 class="dept_name">ADMIN</h1>
+                <img src="css/imgs/admin.png" alt="A tablet being held by a pair of hands with graphical information displayed, presumably in a meeting.">
+            </div>
+            <div class="department_description">
+                <h1>ADMIN</h1>
+                <span>Company awaiting your suggestions</span>
+            </div>
+        </a>
+    </div>
+    <div id="splash-screen">
+        <img src="css/imgs/Logo_with_company_name.png" alt="Emma's small engines golden cog wheel company logo.">
+    </div>
+    <script src="https://kit.fontawesome.com/f8c88d6b79.js" crossorigin="anonymous"></script> 
+    <script src="js/variables.js"></script>
+    <script src="js/seed_data.js"></script> 
+    <script src="js/home.js"></script> 
+</body>
+</html>
